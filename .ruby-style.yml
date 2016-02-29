@@ -1,5 +1,7 @@
 AllCops:
   Exclude:
+    - "Guardfile"
+    - "bin/*"
     - "vendor/**/*"
     - "db/schema.rb"
   UseCache: false
