@@ -10,5 +10,12 @@
   <%= @artist.name %>
 </p>
 
+<% if @embed_info %>
+  <%# Ewwww!!! Don't like using html_safe %>
+  <%= @embed_info['html'].html_safe %>
+<% else %>
+  <p>Sorry, we couldn't find anything to preview for you...</p>
+<% end %>
+
 <%= link_to 'Edit', edit_artist_path(@artist) %> |
 <%= link_to 'Back', artists_path %>

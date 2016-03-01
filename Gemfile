@@ -32,6 +32,9 @@ gem "unicorn"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Hit up Sound Cloud's API
+gem "soundcloud", "~> 0.3.2"
+
 # Used for scraping sites
 gem "nokogiri", "~> 1.6.7"
 

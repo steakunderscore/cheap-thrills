@@ -1,5 +1,7 @@
 == README
 
+See https://cheap-thrills.herokuapp.com/ for deployment.
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
