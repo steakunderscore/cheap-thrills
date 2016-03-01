@@ -35,8 +35,12 @@ gem "unicorn"
 # Used for scraping sites
 gem "nokogiri", "~> 1.6.7"
 
+# Smoother running on Heroku
+gem "rails_12factor", group: :production
+
 group :development, :test do
   gem "pry-byebug"
+  gem "dotenv-rails"
   gem "factory_girl_rails"
   gem "faker"
   gem "guard-ctags-bundler"
