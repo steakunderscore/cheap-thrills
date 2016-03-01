@@ -32,6 +32,9 @@ gem "unicorn"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Used for scraping sites
+gem "nokogiri", "~> 1.6.7"
+
 group :development, :test do
   gem "pry-byebug"
   gem "factory_girl_rails"
