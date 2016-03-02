@@ -1,12 +1,10 @@
 <p id="notice"><%= notice %></p>
 
+<h1><%= @artist.name %></h1>
+
 <%= render "upcoming_events" %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @artist.name %>
-</p>
-
+<h2>Preview a tune</h2>
 <% if @embed_info %>
   <%# Ewwww!!! Don't like using html_safe %>
   <%= @embed_info['html'].html_safe %>
