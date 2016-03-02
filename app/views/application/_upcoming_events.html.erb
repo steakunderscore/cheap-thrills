@@ -1,0 +1,16 @@
+<h2>Upcoming events</h2>
+<table>
+  <thead>
+    <tr>
+      <th>When and where</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @upcoming_events.each do |event| %>
+      <tr>
+        <td><%= link_to(when_and_where(event), event)%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

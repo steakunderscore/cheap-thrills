@@ -5,7 +5,7 @@
 <table>
   <thead>
     <tr>
-      <th>Venue</th>
+      <th>Who? What? Where?</th>
       <th>Starts at</th>
       <th>Price</th>
       <th>Soldout</th>
@@ -16,11 +16,11 @@
   <tbody>
     <% @events.each do |event| %>
       <tr>
-        <td><%= event.venue %></td>
-        <td><%= event.starts_at %></td>
-        <td><%= event.price %></td>
-        <td><%= event.soldout %></td>
-        <td><%= link_to 'Show', event %></td>
+        <td><%= event_title(event) %></td>
+        <td><%= time_tag(event.starts_at) %></td>
+        <td>$<%= event.price / 100.0 %></td>
+        <td><%= event.soldout ? "All gone" : "Not yet" %></td>
+        <td><%= link_to('Show', event)%></td>
       </tr>
     <% end %>
   </tbody>

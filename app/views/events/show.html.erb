@@ -1,23 +1,30 @@
 <p id="notice"><%= notice %></p>
 
+<h1><%= event_title(@event) %></h1>
+
+<%# TODO: Style these nicely. %>
+<% @event.artists.each do |a| %>
+<p><%= link_to(a.name, artist_path(a)) %></p>
+<% end %>
+
 <p>
   <strong>Venue:</strong>
-  <%= @event.venue %>
+  <%= link_to(@event.venue.name, venue_path(@event.venue)) %>
 </p>
 
 <p>
   <strong>Starts at:</strong>
-  <%= @event.starts_at %>
+  <%= time_tag(@event.starts_at) %>
 </p>
 
 <p>
   <strong>Price:</strong>
-  <%= @event.price %>
+  $<%= @event.price / 100.0 %>
 </p>
 
 <p>
   <strong>Soldout:</strong>
-  <%= @event.soldout %>
+  <%= @event.soldout ? "All gone" : "Not yet" %>
 </p>
 
 <%= link_to 'Back', events_path %>

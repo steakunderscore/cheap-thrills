@@ -1,5 +1,6 @@
 class ArtistsController < ApplicationController
   before_action :set_artist, only: [:show]
+  before_action :set_upcoming_events, only: [:show]
 
   # GET /artists
   # GET /artists.json
@@ -27,5 +28,9 @@ class ArtistsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_artist
     @artist = Artist.find(params[:id])
+  end
+
+  def set_upcoming_events
+    @upcoming_events = @artist.events.upcoming
   end
 end
