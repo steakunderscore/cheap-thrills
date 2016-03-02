@@ -1,6 +1,5 @@
 FactoryGirl.define do
   factory :artist do
-    event nil
-    name "MyString"
+    name { Faker::Commerce.product_name }
   end
 end

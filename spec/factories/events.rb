@@ -1,8 +1,13 @@
 FactoryGirl.define do
   factory :event do
-    venue nil
-    starts_at "2016-02-29 12:19:38"
-    price 1
+    association :venue
+
+    starts_at { Faker::Date.forward(60) }
+    price { rand(1000..5000) }
     soldout false
+
+    trait :soldout do
+      soldout true
+    end
   end
 end
