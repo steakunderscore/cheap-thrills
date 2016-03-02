@@ -46,6 +46,7 @@ group :development, :test do
   gem "dotenv-rails"
   gem "factory_girl_rails"
   gem "faker"
+  gem "shoulda"
   gem "guard-ctags-bundler"
   gem "guard-rspec", require: false
   gem "guard-rubocop"
