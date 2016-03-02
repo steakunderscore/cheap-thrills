@@ -12,6 +12,6 @@ RSpec.describe Artist, type: :model do
   end
 
   describe "attribute validations" do
-    pending
+    it { should validate_presence_of(:name) }
   end
 end

@@ -3,4 +3,6 @@ class Artist < ActiveRecord::Base
   has_many :events, through: :artist_events
 
   default_scope { order(:name) }
+
+  validates :name, presence: true
 end

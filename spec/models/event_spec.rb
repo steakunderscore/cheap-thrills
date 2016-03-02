@@ -13,6 +13,8 @@ RSpec.describe Event, type: :model do
   end
 
   describe "attribute validations" do
-    pending
+    it { should validate_presence_of(:starts_at) }
+    it { should validate_presence_of(:venue) }
+    it { should validate_inclusion_of(:soldout).in_array([true, false]) }
   end
 end
