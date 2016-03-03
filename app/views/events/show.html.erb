@@ -1,17 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<h1><%= event_title(@event) %></h1>
+<h2><%= event_title(@event) %></h2>
 
-<%# TODO: Style these nicely. %>
+<h3>Who's playing</h3>
 <% @event.artists.each do |a| %>
+
 <p><%= link_to(a.name, artist_path(a)) %></p>
 <% end %>
 
+<h3>Playing at</h3>
 <p>
-  <strong>Venue:</strong>
   <%= link_to(@event.venue.name, venue_path(@event.venue)) %>
 </p>
 
+<h3>What are the gig details</h3>
 <p>
   <strong>Starts at:</strong>
   <%= time_tag(@event.starts_at) %>
@@ -26,5 +28,3 @@
   <strong>Soldout:</strong>
   <%= @event.soldout ? "All gone" : "Not yet" %>
 </p>
-
-<%= link_to 'Back', events_path %>
