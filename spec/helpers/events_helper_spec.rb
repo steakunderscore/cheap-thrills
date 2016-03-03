@@ -11,5 +11,31 @@ require "rails_helper"
 #   end
 # end
 RSpec.describe EventsHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "generate event title" do
+    it "concats the artist name with the venue name" do
+      venue_name = "The Venue Name"
+      artist_name = "The artist 1"
+      venue = FactoryGirl.create(:venue, name: venue_name)
+      event = FactoryGirl.build(:event, venue: venue)
+      artist = FactoryGirl.build(:artist, name: artist_name)
+      event.artists << artist
+
+      expect(helper.event_title(event)).
+        to eq("The artist 1 playing at The Venue Name")
+    end
+
+    it "concats the multiple artist names  with the venue name" do
+      venue_name = "The Venue Name"
+      artist_name_1 = "The artist 1"
+      artist_name_2 = "The artist 2"
+      venue = FactoryGirl.create(:venue, name: venue_name)
+      event = FactoryGirl.build(:event, venue: venue)
+      artist1 = FactoryGirl.build(:artist, name: artist_name_1)
+      artist2 = FactoryGirl.build(:artist, name: artist_name_2)
+      event.artists = [artist1, artist2]
+
+      expect(helper.event_title(event)).
+        to eq("The artist 1 + The artist 2 playing at The Venue Name")
+    end
+  end
 end

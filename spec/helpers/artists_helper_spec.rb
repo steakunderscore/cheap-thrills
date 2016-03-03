@@ -1,15 +1,15 @@
 require "rails_helper"
 
-# Specs in this file have access to a helper object that includes
-# the ArtistsHelper. For example:
-#
-# describe ArtistsHelper do
-#   describe "string concat" do
-#     it "concats two strings with spaces" do
-#       expect(helper.concat_strings("this","that")).to eq("this that")
-#     end
-#   end
-# end
 RSpec.describe ArtistsHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "generate when and where string" do
+    it "concats the start time with the venue name" do
+      start_time = Time.new(2016, 03, 02, 2, 30, 00, "+00:00") # 9:30pm EST
+      venue_name = "The Venue Name"
+      venue = FactoryGirl.create(:venue, name: venue_name)
+      event = FactoryGirl.build(:event, venue: venue, starts_at: start_time)
+
+      expect(helper.when_and_where(event)).
+        to eq("March 01, 2016 21:30 at The Venue Name")
+    end
+  end
 end
