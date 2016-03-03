@@ -2,7 +2,7 @@
 
 <h1><%= @artist.name %></h1>
 
-<%= render "application/upcoming_events" %>
+<%= render partial: "application/upcoming_events", locals: {upcoming_events: @upcoming_events } %>
 
 <h2>Preview a tune</h2>
 <% if @embed_info %>
