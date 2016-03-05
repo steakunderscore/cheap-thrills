@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160301144758) do
+ActiveRecord::Schema.define(version: 20160305213409) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20160301144758) do
   create_table "events", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
     t.uuid     "venue_id",                   null: false
     t.datetime "starts_at"
-    t.integer  "price"
+    t.integer  "price_cent"
     t.boolean  "soldout",    default: false, null: false
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false

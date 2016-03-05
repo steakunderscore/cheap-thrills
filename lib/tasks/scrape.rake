@@ -16,8 +16,7 @@ namespace :scrape do
       date = row[2].children.first.children.first.to_s.strip
       time = row[3].children.first.children.first.to_s.strip
       venue = row[4].children.first.children.first.to_s.strip
-      price = row[5].children.first.children.first.to_s.strip.
-              gsub(/(\$|\.)/, "")
+      price = row[5].children.first.children.first.to_s.strip
 
       build_objects(sold_out, artists, date, time, venue, price)
     end

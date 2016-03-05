@@ -3,7 +3,7 @@ FactoryGirl.define do
     association :venue
 
     starts_at { Faker::Date.forward(60) }
-    price { rand(1000..5000) }
+    price_cent { rand(1000..5000) }
     soldout false
 
     trait :soldout do
