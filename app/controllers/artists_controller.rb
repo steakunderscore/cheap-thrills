@@ -11,15 +11,13 @@ class ArtistsController < ApplicationController
   # GET /artists/1
   # GET /artists/1.json
   def show
-    client = Soundcloud.new(client_id: ENV["SOUNDCLOUD_CLIENT_ID"]) # ,
-    # client_secret: ENV["SOUNDCLOUD_SECRET"])
+    client = Soundcloud.new(client_id: ENV["SOUNDCLOUD_CLIENT_ID"])
 
-    tracks = client.get("/tracks", q: @artist.name)
+    set_sample_track(client)
 
-    # If we found some tracks, lets show a random one
-    if tracks.present?
-      track_url = tracks.sample.permalink_url
-      @embed_info = client.get("/oembed", url: track_url)
+    # If we found some tracks, lets show a one
+    if @artist.sample_track.present?
+      @embed_info = client.get("/oembed", url: @artist.sample_track["permalink_url"])
     end
   end
 
@@ -32,5 +30,11 @@ class ArtistsController < ApplicationController
 
   def set_upcoming_events
     @upcoming_events = @artist.events.upcoming
+  end
+
+  def set_sample_track(client)
+    # Cache the track for next time
+    @artist.sample_track ||= client.get("/tracks", q: @artist.name).first
+    @artist.save!
   end
 end
