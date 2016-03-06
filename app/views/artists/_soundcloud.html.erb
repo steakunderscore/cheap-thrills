@@ -1,0 +1,6 @@
+<% if @soundcloud_oembed %>
+  <%# Ewwww!!! Don't like using html_safe %>
+  <%= @soundcloud_oembed['html'].html_safe %>
+<% else %>
+  <p>Sorry, we couldn't find anything to preview for you...</p>
+<% end %>

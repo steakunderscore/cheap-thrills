@@ -2,7 +2,7 @@ source "https://rubygems.org"
 ruby "2.3.0"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem "rails", "4.2.5.1"
+gem "rails", "~> 4.2.5.1"
 # Use postgresql as the database for Active Record
 gem "pg", "~> 0.15"
 # Use SCSS for stylesheets
@@ -32,8 +32,9 @@ gem "puma"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-# Hit up Sound Cloud's API
+# Hit up APIs for music
 gem "soundcloud", "~> 0.3.2"
+gem "google-api-client", ">0.9"
 
 # Used for scraping sites
 gem "nokogiri", "~> 1.6.7"

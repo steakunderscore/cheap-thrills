@@ -5,9 +5,8 @@
 <%= render partial: "application/upcoming_events", locals: {upcoming_events: @upcoming_events } %>
 
 <h2>Preview a tune</h2>
-<% if @embed_info %>
-  <%# Ewwww!!! Don't like using html_safe %>
-  <%= @embed_info['html'].html_safe %>
-<% else %>
-  <p>Sorry, we couldn't find anything to preview for you...</p>
-<% end %>
+
+<div>
+  <%= render partial: "artists/youtube", locals: {video_id: @video_id} %>
+  <%= render partial: "artists/soundcloud", locals: {soundcloud_oembed: @soundcloud_oembed} %>
+</div>

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :artists, only: [:index, :show]
+  resources :artists, only: [:index, :show] do
+    get "youtube"
+  end
   resources :events, only: [:index, :show]
   resources :venues, only: [:index, :show]
 
