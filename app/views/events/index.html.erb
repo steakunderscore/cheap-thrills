@@ -19,7 +19,7 @@
         <td><%= event_title(event) %></td>
         <td><%= time_tag(event.starts_at) %></td>
         <td><%= number_to_currency(event.price, precision: 2) %></td>
-        <td><%= event.soldout ? "All gone" : "Not yet" %></td>
+        <td><%= nice_soldout(event.soldout) %></td>
         <td><%= link_to('Show', event)%></td>
       </tr>
     <% end %>

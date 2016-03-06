@@ -10,7 +10,7 @@
 
 <h3>Playing at</h3>
 <p>
-  <%= link_to(@event.venue.name, venue_path(@event.venue)) %>
+  <%= link_to(@venue.name, venue_path(@venue)) %>
 </p>
 
 <h3>What are the gig details</h3>
@@ -26,5 +26,5 @@
 
 <p>
   <strong>Soldout:</strong>
-  <%= @event.soldout ? "All gone" : "Not yet" %>
+  <%= nice_soldout(@event.soldout) %>
 </p>
