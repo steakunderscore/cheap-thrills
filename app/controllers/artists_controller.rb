@@ -45,20 +45,25 @@ class ArtistsController < ApplicationController
                                                  max_results: 1, type: "video")
       @video_id = search_result.items.first.id.video_id
     rescue => e
-      logger.error "Looks like youtube is broken"
-      logger.error e
+      logger.error "ERROR: Looks like youtube is broken"
+      logger.error e.message
     end
   end
 
   def soundcloud
     client = Soundcloud.new(client_id: ENV["SOUNDCLOUD_CLIENT_ID"])
 
-    set_sample_track(client)
+    begin
+      set_sample_track(client)
 
-    # If we found some tracks, lets show a one
-    if @artist.sample_track.present?
-      url = @artist.sample_track["permalink_url"]
-      @soundcloud_oembed = client.get("/oembed", url: url)
+      # If we found some tracks, lets show a one
+      if @artist.sample_track.present?
+        url = @artist.sample_track["permalink_url"]
+        @soundcloud_oembed = client.get("/oembed", url: url)
+      end
+    rescue => e
+      logger.error "Looks like soundcloud is broken:"
+      logger.error e.message
     end
   end
 end
